@@ -1,8 +1,8 @@
 import logging
 logging.basicConfig(level=logging.DEBUG, format="%(message)s")
-import sys
 import random
-
+from datetime import datetime 
+now = datetime.now()
 
 database = []
 
@@ -91,13 +91,16 @@ def top_titles(content_type, ile):
     series = get_series()
     if content_type == 'f':
         by_odtworzenia = sorted(movies,key=lambda popular: popular.liczba_odtworzen, reverse=True)
-        print(by_odtworzenia[0:ile])
+        for i in range(ile):
+            print(f'- {by_odtworzenia[i]}')
     elif content_type =='s':
         by_odtworzenia = sorted(series,key=lambda popular: popular.liczba_odtworzen, reverse=True)
-        print(by_odtworzenia[0:ile])
+        for i in range(ile):
+            print(f'- {by_odtworzenia[i]}')
     elif content_type == 'a':
         by_odtworzenia = sorted(database,key=lambda popular: popular.liczba_odtworzen, reverse=True)
-        print(by_odtworzenia[0:ile])
+        for i in range(ile):
+            print(f'- {by_odtworzenia[i]}')
 
 
 
@@ -118,5 +121,5 @@ if __name__ == '__main__':
     generate_views()
     generate_views_10_times()
 
-    print('Najpopularniejsze filmy i seriale dnia <data> DD.MM.RRRR')
+    print(f'Najpopularniejsze filmy i seriale dnia {now.strftime('%d %m %Y')}')
     top_titles('a',3)
