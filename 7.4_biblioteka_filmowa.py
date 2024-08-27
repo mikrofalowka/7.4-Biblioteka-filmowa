@@ -121,5 +121,5 @@ if __name__ == '__main__':
     generate_views()
     generate_views_10_times()
 
-    print(f'Najpopularniejsze filmy i seriale dnia {now.strftime('%d %m %Y')}')
+    print(f'Najpopularniejsze filmy i seriale dnia {now.strftime('%d/%m/%Y')}')
     top_titles('a',3)
